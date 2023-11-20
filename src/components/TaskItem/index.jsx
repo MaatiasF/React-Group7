@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
 
-// Componente de Tarea (TaskItem)
-const TaskItem = ({ task, onCompleteTask }) => {
-    const [completed, setCompleted] = useState(false);
+// Componente TaskItem
+const TaskItem = (props) => {
   
-    const onClickCompleted = () => {
-      setCompleted(!completed);
-      onCompleteTask(task.id);
-    };
-  
-    return (
-      <div style={{ textDecoration: completed ? 'line-through' : 'none' }}>
-        {task.name}
-        <button onClick={onClickCompleted}>Completar</button>
-        
-        
-        {console.log(task)}
-      </div>
-    );
+  //asignando props
+  const { task, onCompleteTask } = props;
+
+  //useStates
+  const [completed, setCompleted] = useState(false);
+
+  //Eventos
+  const onClickCompleted = () => {
+    setCompleted(!completed);
+    onCompleteTask(task.id);
   };
-  export default TaskItem;
+
+  //HTML
+  return (
+    <div style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+      {task.name}
+      <button onClick={onClickCompleted}>Completar</button>
+
+
+      {console.log(task)}
+    </div>
+  );
+};
+
+//Exportanto Componente TaskItem
+export default TaskItem;

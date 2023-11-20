@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import TaskItem from '../TaskItem';
 
 // Componente de Lista de Tareas (TaskList)
-const TaskList = ({ tasks, onCompleteTask, onDeleteTask }) => {
+const TaskList = (props) => {
     return (
         <div>
-            {tasks.map((task) => (
+            {props.tasks.map((task) => (
                 <TaskItem
                     key={task.id}
                     task={task}
-                    onCompleteTask={onCompleteTask}
+                    onCompleteTask={props.onCompleteTask}
                 />
             ))}
         </div>
