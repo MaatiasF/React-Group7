@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
  
   // Componente de Formulario (TaskForm)
-  const TaskForm = ({ onAddTask }) => {
+  const TaskForm = (props) => {
+    const {onAddTask} = props;
+
     const [newTask, setNewTask] = useState('');
   
     const handleChange = (event) => {
