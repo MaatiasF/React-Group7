@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 const TaskItem = (props) => {
   
   //asignando props
-  const { task, onCompleteTask } = props;
+  const { task } = props;
 
   //useStates
   const [completed, setCompleted] = useState(false);
@@ -16,22 +16,22 @@ const TaskItem = (props) => {
   }, [completed])
 
   //Eventos
-  const onClickCompleted = () => {
+  const onChangeCompleted = () => {
     setCompleted(!completed);
-    onCompleteTask(task.id);
   };
 
   //HTML
   return (
     <div className='tareas' style={{ textDecoration: completed ? 'line-through' : 'none' }}>
-      <input className='checkbox' type="checkbox" checked={completed} onChange={onClickCompleted}/>
-      <input
+      <input className='checkbox' type="checkbox" checked={completed} onChange={onChangeCompleted} //Evento del check cambiara variable completed
+      />  
+      <input 
         type="text"
         readOnly
         value={task.name}
         className="input tarea"
         checked={completed}
-        style={{ textDecoration: completed ? 'line-through' : 'none' }}
+        style={{ textDecoration: completed ? 'line-through' : 'none' }} //dependiendo de la variable completed se tacha la tarea
       />
       
 

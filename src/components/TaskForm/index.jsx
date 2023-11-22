@@ -6,11 +6,11 @@ import { useState } from 'react';
 
     const [newTask, setNewTask] = useState('');
   
-    const handleChange = (event) => {
+    const onChangeText = (event) => {
       setNewTask(event.target.value);
     };
   
-    const handleSubmit = (event) => {
+    const onClickSubmit = (event) => {
       event.preventDefault();
       onAddTask(newTask);
       setNewTask('');
@@ -18,13 +18,13 @@ import { useState } from 'react';
   
     return (
       <div className='form-container'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onClickSubmit}>
         <input
           className='input_tarea'
           type="text"
           placeholder="Nueva tarea"
           value={newTask}
-          onChange={handleChange}
+          onChange={onChangeText}
         />
         <button className='button_agregar' type="submit">Agregar tarea</button>
       </form>

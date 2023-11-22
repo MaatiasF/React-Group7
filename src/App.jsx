@@ -16,25 +16,11 @@ function App() {
       setTasks(updatedTasks);
     };
   
-    const completeTask = (taskId) => {
-      const updatedTasks = tasks.map((task) =>
-        task.id === taskId ? { ...task, completed: !task.completed } : task
-      );
-      setTasks(updatedTasks);
-    };
-  
-    const deleteTask = (taskId) => {
-      const updatedTasks = tasks.filter((task) => task.id !== taskId);
-      setTasks(updatedTasks);
-    };
-  
     return (
       <div>
         <h1>Lista de Tareas</h1>
         <TaskList
           tasks={tasks}
-          onCompleteTask={completeTask}
-          onDeleteTask={deleteTask}
         />
         <TaskForm onAddTask={addTask} />
         

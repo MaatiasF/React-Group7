@@ -10,7 +10,6 @@ const TaskList = (props) => {
                 <TaskItem
                     key={task.id}
                     task={task}
-                    onCompleteTask={props.onCompleteTask}
                 />
             ))}
         </div>
