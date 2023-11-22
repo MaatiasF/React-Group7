@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
  
   // Componente de Formulario (TaskForm)
   const TaskForm = (props) => {
@@ -17,15 +17,18 @@ import React, { useState } from 'react';
     };
   
     return (
+      <div className='form-container'>
       <form onSubmit={handleSubmit}>
         <input
+          className='input_tarea'
           type="text"
           placeholder="Nueva tarea"
           value={newTask}
           onChange={handleChange}
         />
-        <button type="submit">Agregar tarea</button>
+        <button className='button_agregar' type="submit">Agregar tarea</button>
       </form>
+      </div>
     );
   };
   export default TaskForm;

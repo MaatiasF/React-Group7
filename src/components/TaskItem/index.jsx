@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from 'react';
 
 // Componente TaskItem
 const TaskItem = (props) => {
@@ -22,13 +23,22 @@ const TaskItem = (props) => {
 
   //HTML
   return (
-    <div style={{ textDecoration: completed ? 'line-through' : 'none' }}>
-      {task.name}
-      <button onClick={onClickCompleted}>Completar</button>
+    <div className='tareas' style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+      <input className='checkbox' type="checkbox" checked={completed} onChange={onClickCompleted}/>
+      <input
+        type="text"
+        readOnly
+        value={task.name}
+        className="input tarea"
+        checked={completed}
+        style={{ textDecoration: completed ? 'line-through' : 'none' }}
+      />
+      
 
 
       {console.log(task)}
     </div>
+    
   );
 };
 

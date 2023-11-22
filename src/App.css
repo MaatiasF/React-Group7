@@ -18,6 +18,58 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.button_agregar {
+  background-color: rgb(103, 189, 103);
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
+  height: 50px;
+}
+.input_tarea {
+  border: none;
+  border-radius: 8px;
+  height: 30px;
+  padding: 6px;
+  margin-bottom: 12px;
+  width: 300px;  
+}
+.tarea {
+  border: none;
+  border-radius: 8px;
+  height: 30px;
+  padding: 6px;
+  margin-bottom: 12px;
+  width: 300px;    
+}
+.tareas {
+  display: flex;
+  width: 300px; 
+}
+.button_completar {
+  width: 100px;
+  border-radius: 0%;
+}
+.form-container {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  width: 300px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.checkbox {
+  border: none;
+  border-radius: 8px;
+  height: 30px;
+  padding: 6px;
+  margin-bottom: 12px;
+  width: 30px;  
+}
+
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
