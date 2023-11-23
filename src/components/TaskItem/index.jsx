@@ -26,6 +26,7 @@ const TaskItem = (props) => {
       <input className='checkbox' type="checkbox" checked={completed} onChange={onChangeCompleted} //Evento del check cambiara variable completed
       />  
       <input 
+        id={task.id}
         type="text"
         readOnly
         value={task.name}
@@ -33,8 +34,6 @@ const TaskItem = (props) => {
         checked={completed}
         style={{ textDecoration: completed ? 'line-through' : 'none' }} //dependiendo de la variable completed se tacha la tarea
       />
-      
-
 
       {console.log(task)}
     </div>

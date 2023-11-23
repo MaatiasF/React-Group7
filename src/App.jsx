@@ -10,22 +10,23 @@ import TaskItem from './components/TaskItem'
 function App() {
 
   const [tasks, setTasks] = useState([]);
-  
-    const addTask = (newTask) => {
-      const updatedTasks = [...tasks, { id: tasks.length + 1, name: newTask, completed: false }];
-      setTasks(updatedTasks);
-    };
-  
-    return (
-      <div>
-        <h1>Lista de Tareas</h1>
-        <TaskList
-          tasks={tasks}
-        />
-        <TaskForm onAddTask={addTask} />
-        
-      </div>
-    );
-  }
+
+  const addTask = (newTask) => {
+    const updatedTasks = [...tasks, { id: tasks.length + 1, name: newTask, completed: false }];
+    setTasks(updatedTasks);
+  };
+
+
+  return (
+    <div>
+      <h1>Lista de Tareas</h1>
+      <TaskList
+        tasks={tasks}
+      />
+
+      <TaskForm onAddTask={addTask} />
+    </div>
+  );
+}
 
 export default App

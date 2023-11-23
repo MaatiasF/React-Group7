@@ -4,9 +4,10 @@ import TaskItem from '../TaskItem';
 
 // Componente de Lista de Tareas (TaskList)
 const TaskList = (props) => {
+    const {tasks} = props
     return (
         <div>
-            {props.tasks.map((task) => ( // recorre la lista de tareas
+            {tasks.map((task) => ( // recorre la lista de tareas
                 <TaskItem
                     key={task.id}
                     task={task}

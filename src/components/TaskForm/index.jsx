@@ -7,6 +7,7 @@ import { useState } from 'react';
     const [newTask, setNewTask] = useState('');
   
     const onChangeText = (event) => {
+      event.preventDefault();
       setNewTask(event.target.value);
     };
   
