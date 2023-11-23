@@ -26,6 +26,7 @@
   cursor: pointer;
   font-weight: bold;
   height: 50px;
+  margin-top: 8px;
 }
 .input_tarea {
   border: none;

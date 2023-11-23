@@ -1,45 +1,60 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 
-// Componente TaskItem
 const TaskItem = (props) => {
-  
-  //asignando props
   const { task } = props;
-
-  //useStates
   const [completed, setCompleted] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
-  //useEffect
-  useEffect(()=>{
-    alert('Estado del taskItem ' + task.name + ' ' + completed)
-  }, [completed])
+  useEffect(() => {
+    setShowAlert(true);
+  }, [completed]);
 
-  //Eventos
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
+
   const onChangeCompleted = () => {
     setCompleted(!completed);
   };
 
-  //HTML
   return (
-    <div className='tareas' style={{ textDecoration: completed ? 'line-through' : 'none' }}>
-      <input className='checkbox' type="checkbox" checked={completed} onChange={onChangeCompleted} //Evento del check cambiara variable completed
-      />  
-      <input 
+    <div
+      className="tareas"
+      style={{ textDecoration: completed ? "line-through" : "none" }}
+    >
+      <input
+        className="checkbox"
+        type="checkbox"
+        checked={completed}
+        onChange={onChangeCompleted}
+      />
+      <input
         id={task.id}
         type="text"
         readOnly
         value={task.name}
         className="input tarea"
         checked={completed}
-        style={{ textDecoration: completed ? 'line-through' : 'none' }} //dependiendo de la variable completed se tacha la tarea
+        style={{ textDecoration: completed ? "line-through" : "none" }}
       />
 
-      {console.log(task)}
+      <Snackbar
+        open={showAlert}
+        autoHideDuration={6000}
+        onClose={handleCloseAlert}
+      >
+        <MuiAlert
+          onClose={handleCloseAlert}
+          severity="info"
+          sx={{ width: "100%" }}
+        >
+          {`Estado de ${task.name}: ${completed ? "Completada" : "Pendiente"}`}
+        </MuiAlert>
+      </Snackbar>
     </div>
-    
   );
 };
 
-//Exportanto Componente TaskItem
 export default TaskItem;

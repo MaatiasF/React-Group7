@@ -1,32 +1,33 @@
-/* eslint-disable no-unused-vars */
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import TaskList from './components/TaskList'
-import TaskForm from './components/TaskForm'
-import TaskItem from './components/TaskItem'
+import { useState } from "react";
+import "./App.css";
+import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
 
 function App() {
-
   const [tasks, setTasks] = useState([]);
 
+  {
+    /* entrada tarea */
+  }
   const addTask = (newTask) => {
-    const updatedTasks = [...tasks, { id: tasks.length + 1, name: newTask, completed: false }];
+    const updatedTasks = [
+      ...tasks,
+      { id: tasks.length + 1, name: newTask, completed: false },
+    ];
     setTasks(updatedTasks);
   };
 
-
+  {
+    /* salida tarea */
+  }
   return (
     <div>
       <h1>Lista de Tareas</h1>
-      <TaskList
-        tasks={tasks}
-      />
+      <TaskList tasks={tasks} />
 
       <TaskForm onAddTask={addTask} />
     </div>
   );
 }
 
-export default App
+export default App;
